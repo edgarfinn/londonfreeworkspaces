@@ -1,0 +1,449 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+/*   background-color: grey; */
+}
+
+body {
+    background-image: url("https://dl.dropboxusercontent.com/u/5038771/fwsimages/lined-tile.jpg");
+    background-repeat: repeat-x-y;
+}
+
+p, a, li, h1, h2, h3, h4 {
+  font-family: "Lucida Grande", arial;
+  color: rgba(0,0,0,0.83);
+/*   font-size: 1em; */
+}
+
+h2 {
+  font-size: 1em;  
+}
+
+p, ul, li {
+  font-size: 0.8em;  
+}
+
+.text-center {
+  text-align: center;
+}
+
+#contain-all {
+/*   border: 6px solid pink; */
+  display: flex;
+  flex-direction: column;
+}
+
+#header {
+  display: flex;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 5px 10px 5px;
+  background-color: rgba(0,0,0,0.3);
+  height: 90px;
+}
+
+#page-title {
+  border: 3px solid rgba(0,0,0,0.7);
+  border-radius: 3px;
+  padding: 10px 30px 10px 30px;
+  font-size: 2em;
+/*   padding: 10px; */
+  margin: 10px 10px 10px 10px;
+/*     padding: 5px; */
+}
+
+#page-title h1 {
+  
+}
+
+#page-intro {
+  padding: 3px;
+}
+#wrapper {
+/*   border: 3px solid yellow; */
+  margin: 0;
+  padding: 5px;
+
+}
+
+.map-intro {
+  margin: 10px;
+  font-size: 1.3em;
+}
+
+.map-aside {
+/*   border: 3px solid yellow; */
+  flex: 1;
+  
+}
+
+#map-wrapper {
+/*   border: 3px solid blue; */
+/*   background-color: blue; */
+  height: 425px;
+  overflow: hidden;
+  display: flex;
+}
+
+#map-center {
+/*   border: 3px solid grey; */
+  flex: 6;
+  display: flex;
+  flex-direction: column;
+}
+
+#map-center #map-container {
+  
+  border: 3px;
+  width: 100%;
+  height: 100%;
+  margin-top: -48px;
+  overflow: hidden;
+  
+}
+
+#map-center #map-container iframe {
+  position: relative;
+  width: 105%;
+  height: 105%;
+  margin-left: -3px;
+  
+}
+
+
+
+/*  - v - VENUE LIST - v -  */
+
+
+#venue-list-aligner {
+/*   border: 5px solid black; */
+  display: flex;
+  flex-direction: row;
+  height: auto;
+}
+
+/* #venue-list-left {
+  flex: 0.5;
+  border: 3px solid red;
+} */
+
+#venue-list-wrapper {
+/*   border: 3px solid green; */
+    clear: both;
+
+  align-self: center;
+  flex: 5;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: auto;
+  margin-bottom: 110px;
+}
+
+.venue {
+  border: 3px solid rgba(0,0,0,0.4);
+  border-radius: 6px;
+  background-color: rgba(0,0,0,0.2);
+  margin: 10px 5px 10px 5px;
+  padding: 0;
+  max-width: 296px;
+  height: auto;
+/*   display: flex;
+  flex-direction: column; */  
+}
+
+.venue-thumbnail {
+/*   border: 3px solid tomato; */
+  background-color: rgba(0,0,0,0,1);
+  max-width: 290px;
+  max-height: 160px;
+  width: 290px;
+  height: auto;
+  overflow: hidden;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.venue-thumbnail img {
+  width: 100%;
+  height: auto;
+  position: relative;
+  background-color: black;
+
+}
+
+#venue-list-filler {
+  visibility: hidden;
+  width: 296px;  
+}
+
+/* #venue-list-right {
+  flex: 0.5;
+  border: 3px solid blue;
+} */
+
+/*  
+@media all and (max-width: 350px) {
+   .venue {
+    max-width: 100%;
+    max-height: 100%;  
+    margin: 5px 0 5px 0; 
+  }
+  
+  .venue-thumbnail {
+    height: 100%;
+    width: 100%;
+      
+  } 
+}
+
+*/
+/* - - Details section - -  */
+
+.read-more-wrap {
+  
+/*   background-color: rgba(90,90,90,0.8); */
+      background-image: url("https://dl.dropboxusercontent.com/u/5038771/fwsimages/lined-tile.jpg");
+    background-repeat: repeat-x-y;
+  color: black;
+  padding: 0;
+  position: absolute;
+  z-index: 3;
+  max-width: 290px;
+  margin: 0;
+/*   max-width: 289px; */
+  list-style-type: none;
+}
+
+.read-more-wrap li p {
+  font-size: 1em;
+}
+
+.read-more-state {
+  display: none;
+}
+
+.read-more-target {
+  opacity: 0;
+  max-height: 0;
+  font-size: 0;
+  transition: .25s ease-in-out;
+}
+
+.read-more-state:checked ~ .read-more-wrap .read-more-target {
+  opacity: 1;
+  font-size: inherit;
+  max-height: 1900px;
+  padding: 2px; 
+  border: 2px solid rgba(0,0,0,0.5);
+
+}
+.read-more-state:checked ~ .read-more-wrap {
+  border: 2px solid rgba(0,0,0,0.5);
+  border-radius: 4px;
+  max-height: 206px;
+  overflow-y: scroll;
+  
+}
+
+
+/* .read-more-state ~ .read-more-trigger:before {
+  content: 'Show details...';
+  font-family: "Lucida Grande", arial;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.read-more-state:checked ~ .read-more-trigger:before {
+  content: 'Hide details';
+  font-family: "Lucida Grande", arial;
+  font-size: 0.8em;
+  text-align: center;
+  
+} */
+
+/* .read-more-trigger {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 .5em;
+  color: #666;
+  font-size: .9em;
+  line-height: 2;
+  border: 1px solid #ddd;
+  border-radius: .25em;
+} */
+
+/* - v - Custom venue settings - v - */
+
+#southbank img {
+  bottom: 80px;
+  height: auto;  
+}
+
+#campus .venue-thumbnail img {
+  position: relative;
+  right: 8px;
+  width: 138%;
+  height: auto;
+}
+
+#ace-hotel .venue-thumbnail img {
+  width: 118%;
+}
+
+#barbican .venue-thumbnail img {
+  position: relative;
+  bottom: 20px;
+}
+
+/* - ^ - Custom venue settings - ^ - */
+
+/* - v - Footer - v - */
+#footer {
+  clear: both;
+  border-radius: 5px;
+  background-color: rgba(0,0,0,0.3);
+/*   border: 3px solid green; */
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#socials-wrapper{
+/*   border: 3px solid green; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+/*   margin: 10px; */
+  padding: 5px;
+  
+}
+
+#socials-wrapper a {
+  text-decoration: none;
+  
+}
+.social-button{
+
+  background-color: rgba(255,255,255,0.5);
+  color: black;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.35s ease-in-out;
+  margin: 4px;
+}
+
+.social-button:hover {
+  background-color: rgba(0,0,0,0.3);
+  color: white;
+  transition: background-color 0.35s ;
+  transition: color 0.35s ease-in-out;
+
+}
+/* - ^ - Footer - ^ - */
+
+
+@media all and (max-width: 621px) {
+  #header {
+    height: auto;
+    min-height: 65px;
+  }
+  .read-more-wrap {
+    position: relative;  
+  }
+  .read-more-state:checked ~ .read-more-wrap {
+  max-height: 1900px;    
+}
+  #page-title {
+    font-size: 1.34em;
+    border: none;
+    margin: 3px;
+  }
+  #venue-list-wrapper {
+    margin-bottom: 0;
+  }
+  
+}
+
+@media all and (max-width: 350px) {
+  p, ul, li {
+    font-size: 0.85em;  
+  }
+  #wrapper {
+    padding: 2;
+  }
+  
+  #page-title {
+    font-size: 1.2em;
+    padding: 10px;
+/*     border: 3px solid black; */
+    margin: 3px 5px 3px 5px;
+/*     padding: 5px; */
+  }
+  
+  #page-intro {
+    padding: 5px;
+
+}
+  
+  .map-intro {
+    margin: 5px;
+    font-size: 1em;
+  }
+  
+  .map-aside {
+    flex: 0.15;
+  }
+#map-wrapper {
+    max-height: 280px; 
+  }
+  
+  #map-center #map-container {
+    max-height: 280px;
+  }
+  
+
+  #map-center #map-container iframe {
+  height: 107%;
+}
+  
+  .venue {
+    max-width: 100%;
+    max-height: 100%;  
+    margin: 5px 0 5px 0; 
+  }
+  
+  .venue-thumbnail {
+    height: 100%;
+    width: 100%;   
+  }
+  
+  #venue-list-filler {
+    display: none;
+  }
+  
+    #southbank .venue-thumbnail img {
+    position: relative;
+    width: 110%;
+/*     bottom: 48%; */
+  }
+  
+  #johnharvard .venue-thumbnail img {
+    width: 115%;  
+}
+  
+  #barbican .venue-thumbnail img {
+    width: 110%;
+}
+  
+}
